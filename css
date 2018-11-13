@@ -1,0 +1,29 @@
+APUNTES CSS
+
+Formas de poner css a tus etiquetas:
+1.- en la propia etiqueta en el attrb style.
+2.- Entre etiquetas styles
+<style>
+    p { attb: valor; ...}
+    a { attb: valor;...}
+</style>
+
+3.- Con archivos apartes, los podemos llamar con directivas, @import 'ruta del archivo css';
+
+Definir clase en css:
+dentro de las etiquetas style.
+.NombreClase { attb: valor; ...} y para llamarla, desde la etiqueta la colocamos en el attrb class.
+podemos llamar desde una etiqueta a mas de una clase, class="clase1 clase2" con un espacio.
+Si hay algun atributo en la clase que no sea compatible con la etiqueta, simplemente el navegador,
+lo obvia.
+
+------ SELECTORES ----
+si dentro de <form> tenemos <inputs> y he asignado atributos a forms, tb los tomará los inputs y las etiquetas
+que tiene form. Si queremos que los inputs tengan otros attrb deberiamos indicarlo entre las etiquetas style
+<style>
+    FORM INPUT { attb: valor; ....}
+</style>
+
+Definir instancia en css:
+dentro de las etiquetas style.
+#nombreInstancia {attb: valor; ...}
