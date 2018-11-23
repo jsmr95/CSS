@@ -28,6 +28,22 @@ Definir instancia en css:
 dentro de las etiquetas style.
 #nombreInstancia {attb: valor; ...}
 
+FORMAS:
+    1.- p {...} -> todos los p
+    2.- p.miclase {...} -> la clase de p
+    3.- p,h1 {...} -> todos los p y h1
+    4.- p h1 {...} -> los h1 dentro de p
+    5.- p h1 #instancia {...} -> la instancia dentro de h1 y dentro de p
+    6.- p>h1 {...} -> a los h1 de herencia directa con p
+    7.- p+h1 {...} -> a los p1 y h1 del mismo nivel (hermanos) de herencia.
+    8.- image[border=5]{...} -> todas las imagenes con atributo border=5, se le asigna esos atributos.
+    9.- p:nth-child(1) -> el hijo de 1 generacion de p
+
+    Podemos hacer seleccion de selectores a través de sus atributos:
+    10.- p[name='texto']{...} -> aplica a los p, con el atributo name='texto', pero podemos usar
+    ^=, *= ó $= que significa, empieza por, ...
+    
+
 ------- TEORIA ----------
 Componentes psicosomáticos ->
 Componentes culturales -> asociar la muerte al negro en occidente y otros lados a blanco
@@ -46,3 +62,10 @@ substractiva -> parte del negro y vas tomando color 00-00-00
 
 Composicion->RGB, Hexadecimal,...
 Tipografia (color,tipo,estilo,tamaño,familia,efectos,...);
+
+-------------- BUENA PRACTICA ---------------
+Poner footer, nav,article,.. {display:block}; para que el navegador interpreta como bloques
+esos selectores.
+
+box-sizing -> establece las dimensiones de un elemento, aunque cambie, bordes, margenes,
+margenes internos,... esas van a ser sus dimensiones para siempre.
