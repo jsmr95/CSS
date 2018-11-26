@@ -4,13 +4,36 @@
         <meta charset="utf-8">
         <title></title>
         <style type="text/css">
-            #boton1:hover {
+            #boton1:active {
                 transform: rotate(20deg);
             }
-            /*MIRAR EN W3SCHOOLS -> CSS 2D TRANSFORMS*/
+            #boton2:active{
+                transform: translate(50px, 100px);
+            }
+            #boton3:active{
+                transform: scale(2, 3);
+            }
+            #boton4:active{
+                transform: skewX(20deg);
+            }
+            #boton5:active{
+                transform: skewY(20deg);
+            }
+            #boton6:active{
+                transform: skew(20deg, 10deg);
+            }
+            #boton7:active{
+                transform: matrix(2, -0.3, 0, 1, 0, 0);
+            }
         </style>
     </head>
     <body>
-        <input id="boton1" value="hola" type="button">
+        <input id="boton1" value="Rotate(20)" type="button">
+        <input id="boton2" value="Translate" type="button">
+        <input id="boton3" value="Scale" type="button">
+        <input id="boton4" value="SkeyX" type="button">
+        <input id="boton5" value="SkeyY" type="button">
+        <input id="boton6" value="Skew" type="button">
+        <input id="boton7" value="matrix" type="button">
     </body>
 </html>
