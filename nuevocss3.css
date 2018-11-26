@@ -19,6 +19,22 @@ body {
     -moz-box-shadow: rgb(150,150,150) 5px 5px;
     -webkit-box-shadow: rgb(250,250,250) 5px 5px;
     box-shadow: rgb(27, 96, 216) 10px 10px 30px;
+
+    /*Transformación: escala */
+    -moz-transform: scale(2);
+    -webkit-transform: scale(2);
+    transform: scale(1.25 );
+
+    /*Transformación: rotacion*/
+    transform: rotate(10deg);
+
+    /*Transformación: skew */
+    transform: skewX(2);
+
+    /*Transformación: translate */
+    /* transform: translate(50px); */
+
+
 }
 #titulo {
     color: #F7FE2E;
