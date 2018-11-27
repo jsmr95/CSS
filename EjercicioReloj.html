@@ -1,62 +1,56 @@
 <!DOCTYPE html>
-<html lang="es" dir="ltr">
+<html lang="es">
     <head>
-        <meta charset="utf-8">
         <title></title>
-        <style>
-            img[src="./imagenes/reloj.png"]{
-                position:absolute;
-                top:100px;
-                left:100px;
-                width: 250px;
-                height: 250px;
-                i-index:0;
+        <style media="screen">
+            #esfera,#segundero,#minutero,#horario {
+                height: 225px;
+                width: 225px;
+                position: absolute
             }
-            img[src="./imagenes/hora.png"]{
-                position:absolute;
-                top:170px;
-                left:150px;
-                width: 150px;
-                height: 80px;
-                i-index:1;
-                transform: rotate(-120deg);
+            #esfera {
+                i-index: 2
             }
-            img[src="./imagenes/minuto.png"]{
-                position:absolute;
-                top:142px;
-                left:150px;
-                width: 150px;
-                height: 140px;
-                i-index:1;
-                transform: rotate(-135deg);
+            #segundero {
+                i-index: 2
             }
-            img[src="./imagenes/segundo.png"]{
-                position:absolute;
-                top:140px;
-                left:200px;
-                width: 50px;
-                height: 140px;
-                i-index:1;
-                transform: rotate(-160deg);
+            #minutero {
+                i-index: 2
+                transform: rotate(6deg);
             }
-            #hora:hover{
-                transform: rotate(20deg);
+            #horario {
+                i-index: 2
             }
-            #minuto:hover{
-                transform: rotate(-130deg);
+            #horario:active {
+                -moz-transition: -moz-transform 2s ease-in-out 0.5s;
+                -webkit-transition: -webkit-transform 2s ease-in-out 0.5s;
+                -moz-transform: rotate(6deg);
+                -webkit-transform: rotate(6deg);
             }
-            #segundo:hover{
-                transform: rotate(20deg);
-            }
-
         </style>
+        <script type="text/javascript">
+        window.onload = function(){
+            boton.addEventListener('click',avanza);
+        }
+        var conts = 0;
+        var contm = 0;
+        var conth = 0;
+        function avanza(){
+            conts+=6;
+            segundero.style.transform = `rotate(${conts}deg)`;
+            minutero.style.transform = `rotate(${contm}deg)`;
+            horario.style.transform = `rotate(${conth}deg)`;
+        }
+        </script>
     </head>
     <body>
-        <div class="">
-            <img  src="./imagenes/reloj.png">
-            <img id="hora" src="./imagenes/hora.png">
-            <img id="minuto" src="./imagenes/minuto.png">
-            <img id="segudo"src="./imagenes/segundo.png">
+        <input id="boton" type="button" value="Incrementar"><br><br><br><br>
+        <div class="reloj">
+            <img id="esfera" src="./imagenes/reloj.jpg">
+            <img id="segundero" src="./imagenes/segundero.png">
+            <img id="minutero" src="./imagenes/minutero.png">
+            <img id="horario" src="./imagenes/horario.png">
         </div>
+        <br>
     </body>
 </html>
