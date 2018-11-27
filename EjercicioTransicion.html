@@ -7,7 +7,8 @@
             #caja1 {border:1px solid #FF00FF;
                 width:100px;
                 height:100px;
-                transition: width 2s linear;}
+                transition-property: all;
+                transition: 5s ease;}
             #caja2 {border:2px solid #F0F00F;
                 width:100px;
                 height:100px;
@@ -20,12 +21,14 @@
                 width:100px;
                 height:100px;
                 transition: width 2s ease-out 1s;}
+
             #caja1:hover {
                 width:500px;
-                background: #FF00FF
+                background: #CCFF00;
+                height: 200px;
             }
+
             #caja2:hover {
-                width:500px;
                 height:200px;
             }
             #caja3:hover{
