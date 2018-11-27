@@ -6,24 +6,31 @@
         <style type="text/css">
             #boton1:active {
                 transform: rotate(20deg);
+                transition: transform 2s linear;
             }
             #boton2:active{
                 transform: translate(50px, 100px);
+                transition: transform 2s ease;
             }
             #boton3:active{
                 transform: scale(2, 3);
+                transition: transform 2s ease-in;
             }
             #boton4:active{
                 transform: skewX(20deg);
+                transition: transform 2s ease-out;
             }
             #boton5:active{
                 transform: skewY(20deg);
+                transition: transform 2s ease-in-out;
             }
             #boton6:active{
                 transform: skew(20deg, 10deg);
+                transition: transform 2s linear;
             }
             #boton7:active{
                 transform: matrix(2, -0.3, 0, 1, 0, 0);
+                transition: transform 2s ease-in;
             }
         </style>
     </head>
