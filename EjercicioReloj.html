@@ -30,13 +30,26 @@
         </style>
         <script type="text/javascript">
         window.onload = function(){
-            boton.addEventListener('click',avanza);
+            boton1.addEventListener('click',enciende);
+            boton2.addEventListener('click',para);
         }
         var conts = 0;
         var contm = 0;
         var conth = 0;
+        var interval;
+
+        function enciende(){
+            interval = setInterval(avanza,1000);
+        }
+
+        function para(){
+            clearInterval(interval);
+        }
+
         function avanza(){
             conts+=6;
+            contm+=0.1;
+            conth+=0.0084;
             segundero.style.transform = `rotate(${conts}deg)`;
             minutero.style.transform = `rotate(${contm}deg)`;
             horario.style.transform = `rotate(${conth}deg)`;
@@ -44,7 +57,8 @@
         </script>
     </head>
     <body>
-        <input id="boton" type="button" value="Incrementar"><br><br><br><br>
+        <input id="boton1" type="button" value="Activar Reloj">
+        <input id="boton2" type="button" value="Parar Reloj"><br><br><br><br>
         <div class="reloj">
             <img id="esfera" src="./imagenes/reloj.jpg">
             <img id="segundero" src="./imagenes/segundero.png">
