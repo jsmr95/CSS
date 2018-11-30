@@ -3,7 +3,7 @@
     <head>
         <title></title>
         <style media="screen">
-            #esfera,#segundero,#minutero,#horario {
+            .esfera,.segundero,.minutero,.horario {
                 height: 225px;
                 width: 225px;
                 position: absolute
@@ -19,6 +19,8 @@
             #minutero {
                 i-index: 2
                 transform: rotate(6deg);
+                -moz-transition: -moz-transform 1s linear;
+                -webkit-transition: -webkit-transform 1s linear;
             }
             #horario {
                 i-index: 2
@@ -29,43 +31,54 @@
                 -moz-transform: rotate(6deg);
                 -webkit-transform: rotate(6deg);
             }
+            .reloj{
+                height: 75px;
+                width: 75px;
+                transform: translate(600px,600px);
+                position: absolute;
+                transition-property: all;
+                transition: 5s ease;
+            }
         </style>
         <script type="text/javascript">
-        window.onload = function(){
-            boton1.addEventListener('click',enciende);
-            boton2.addEventListener('click',para);
-        }
-        var conts = 0;
-        var contm = 0;
-        var conth = 0;
+        var d = new Date();
+        var conts = d.getSeconds();
+        var contm = d.getMinutes()+conts/60;
+        var conth = d.getHours()*60+d.getMinutes()/60;
+
+        var contsd = d.getSeconds()*180/30;
+        var contmd = d.getMinutes()*180/30;
+        var conthd = (360/12)*d.getHours();
+
         var interval;
 
-        function enciende(){
-            interval = setInterval(avanza,1000);
-        }
-
-        function para(){
-            clearInterval(interval);
-        }
-
         function avanza(){
-            conts+=6;
-            contm+=0.1;
-            conth+=0.0084;
-            segundero.style.transform = `rotate(${conts}deg)`;
-            minutero.style.transform = `rotate(${contm}deg)`;
-            horario.style.transform = `rotate(${conth}deg)`;
+            contsd+=6;
+            contmd+=0.1;
+            conthd+=0.0084;
+            segundero.style.transform = `rotate(${contsd}deg)`;
+            minutero.style.transform = `rotate(${contmd}deg)`;
+            horario.style.transform = `rotate(${conthd}deg)`;
+            invterval1 = setTimeout(transforma,4000);
         }
+
+        function transforma(){
+            document.getElementById('esfera').setAttribute('class','reloj');
+            document.getElementById('segundero').setAttribute('class','reloj');
+            document.getElementById('minutero').setAttribute('class','reloj');
+            document.getElementById('horario').setAttribute('class','reloj');
+            }
+
+        interval = setInterval(avanza,1000);
+
         </script>
     </head>
     <body>
-        <input id="boton1" type="button" value="Activar Reloj">
-        <input id="boton2" type="button" value="Parar Reloj"><br><br><br><br>
-        <div class="reloj">
-            <img id="esfera" src="./imagenes/reloj.jpg">
-            <img id="segundero" src="./imagenes/segundero.png">
-            <img id="minutero" src="./imagenes/minutero.png">
-            <img id="horario" src="./imagenes/horario.png">
+        <div id="reloj">
+            <img id="esfera" class="esfera" src="./imagenes/reloj.jpg">
+            <img id="segundero" class="segundero" src="./imagenes/segundero.png">
+            <img id="minutero" class="minutero" src="./imagenes/minutero.png">
+            <img id="horario" class="horario" src="./imagenes/horario.png">
         </div>
         <br>
     </body>
