@@ -11,17 +11,24 @@
             #esfera {
                 i-index: 2
             }
+            #milisegundero {
+                i-index: 2
+            }
+            #milisegundero:active {
+                -moz-transition: -moz-transform 1s linear;
+                -webkit-transition: -webkit-transform 1s linear;
+            }
             #segundero {
                 i-index: 2
             }
-            #segundero {
+            #segundero:active {
                 -moz-transition: -moz-transform 1s linear;
                 -webkit-transition: -webkit-transform 1s linear;
             }
             #minutero {
                 i-index: 2
             }
-            #minutero {
+            #minutero:active {
                 -moz-transition: -moz-transform 1s linear;
                 -webkit-transition: -webkit-transform 1s linear;
             }
@@ -33,19 +40,20 @@
                 -webkit-transition: -webkit-transform 1s linear;
             }
             .chico{
-                height: 75px;
-                width: 75px;
+                height: 70px;
+                width: 70px;
                 bottom: 0;
                 right: 0;
                 position: absolute;
                 transition-property: all;
-                transition: 5s ease;
+                transition: 5s linear;
             }
         </style>
     </head>
     <body>
         <div id="reloj">
             <img id="esfera" class="normal" src="./imagenes/reloj.jpg">
+            <img id="milisegundero" class="normal" src="./imagenes/segundero.png">
             <img id="segundero" class="normal" src="./imagenes/segundero.png">
             <img id="minutero" class="normal" src="./imagenes/minutero.png">
             <img id="horario" class="normal" src="./imagenes/horario.png">
@@ -53,10 +61,12 @@
         <br>
         <script type="text/javascript">
         var d = new Date();
+        var contms = d.getSeconds();
         var conts = d.getSeconds();
         var contm = d.getMinutes()+conts/60;
         var conth = d.getHours()*60+d.getMinutes()/60;
 
+        var contmsd = d.getSeconds()*180/30;
         var contsd = d.getSeconds()*180/30;
         var contmd = d.getMinutes()*180/30;
         var conthd = (360/12)*d.getHours();
@@ -65,22 +75,26 @@
         var interval1;
 
         function avanza(){
-            contsd+=6;
-            contmd+=0.1;
-            conthd+=0.0084;
+            contmsd+=3.6;
+            contsd+=0.06;
+            contmd+=0.001;
+            conthd+=0.000084;
+            milisegundero.style.transform = `rotate(${contmsd}deg)`;
             segundero.style.transform = `rotate(${contsd}deg)`;
             minutero.style.transform = `rotate(${contmd}deg)`;
             horario.style.transform = `rotate(${conthd}deg)`;
         }
 
         function transforma(){
+            // document.getElementById('reloj').setAttribute('class','chico');
             document.getElementById('esfera').setAttribute('class','chico');
+            document.getElementById('milisegundero').setAttribute('class','chico');
             document.getElementById('segundero').setAttribute('class','chico');
             document.getElementById('minutero').setAttribute('class','chico');
             document.getElementById('horario').setAttribute('class','chico');
         }
 
-        interval = setInterval(avanza,1000);
+        interval = setInterval(avanza,10);
         invterval1 = setTimeout(transforma,4000);
 
         reloj.addEventListener('mouseenter',agranda);
@@ -88,11 +102,13 @@
         function agranda(){
             clearTimeout(interval1);
             document.getElementById('esfera').removeAttribute('class');
+            document.getElementById('milisegundero').removeAttribute('class');
             document.getElementById('segundero').removeAttribute('class');
             document.getElementById('minutero').removeAttribute('class');
             document.getElementById('horario').removeAttribute('class');
 
             document.getElementById('esfera').setAttribute('class','normal');
+            document.getElementById('milisegundero').setAttribute('class','normal');
             document.getElementById('segundero').setAttribute('class','normal');
             document.getElementById('minutero').setAttribute('class','normal');
             document.getElementById('horario').setAttribute('class','normal');
