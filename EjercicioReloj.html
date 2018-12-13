@@ -3,63 +3,56 @@
     <head>
         <title></title>
         <style media="screen">
-            .normal {
+
+            #esfera, #milisegundero, #segundero, #minutero, #horario{
+                i-index: 2
                 height: 225px;
                 width: 225px;
                 position: absolute;
-            }
-            #esfera {
-                i-index: 2
-            }
-            #milisegundero {
-                i-index: 2
             }
             #milisegundero:active {
                 -moz-transition: -moz-transform 1s linear;
                 -webkit-transition: -webkit-transform 1s linear;
             }
-            #segundero {
-                i-index: 2
-            }
+
             #segundero:active {
                 -moz-transition: -moz-transform 1s linear;
                 -webkit-transition: -webkit-transform 1s linear;
             }
-            #minutero {
-                i-index: 2
-            }
+
             #minutero:active {
                 -moz-transition: -moz-transform 1s linear;
                 -webkit-transition: -webkit-transform 1s linear;
             }
-            #horario {
-                i-index: 2
-            }
+
             #horario:active {
                 -moz-transition: -moz-transform 1s linear;
                 -webkit-transition: -webkit-transform 1s linear;
             }
             #reloj {
-                border: 1px solid;
+                height: 225px;
+                width: 225px;
+                position: absolute;
             }
-            .chico{
+            div{
+                transition-property: all;
+                transition: 3s linear;
+            }
+            #chico{
                 height: 70px;
                 width: 70px;
-                transform: translate(900px,560px);
+                transform: translate(212vh,89vh) scale(.2,.2) ;
                 position: relative;
-                transition-property: all;
-                transition: 5s linear;
-
             }
         </style>
     </head>
     <body>
-        <div id="reloj" class="normal">
-            <img id="esfera" class="normal" src="./imagenes/reloj.jpg">
-            <img id="milisegundero" class="normal" src="./imagenes/segundero.png">
-            <img id="segundero" class="normal" src="./imagenes/segundero.png">
-            <img id="minutero" class="normal" src="./imagenes/minutero.png">
-            <img id="horario" class="normal" src="./imagenes/horario.png">
+        <div id="reloj">
+            <img id="esfera"  src="./imagenes/reloj.jpg">
+            <img id="milisegundero"  src="./imagenes/segundero.png">
+            <img id="segundero" src="./imagenes/segundero.png">
+            <img id="minutero" src="./imagenes/minutero.png">
+            <img id="horario" src="./imagenes/horario.png">
         </div>
         <br>
 
@@ -90,12 +83,7 @@
         }
 
         function transforma(){
-            document.getElementById('reloj').setAttribute('class','chico');
-            // document.getElementById('esfera').setAttribute('class','chico');
-            // document.getElementById('milisegundero').setAttribute('class','chico');
-            // document.getElementById('segundero').setAttribute('class','chico');
-            // document.getElementById('minutero').setAttribute('class','chico');
-            // document.getElementById('horario').setAttribute('class','chico');
+            document.getElementById('reloj').setAttribute('id','chico');
         }
 
         interval = setInterval(avanza,10);
@@ -105,18 +93,8 @@
 
         function agranda(){
             clearTimeout(interval1);
-            document.getElementById('esfera').removeAttribute('class');
-            document.getElementById('milisegundero').removeAttribute('class');
-            document.getElementById('segundero').removeAttribute('class');
-            document.getElementById('minutero').removeAttribute('class');
-            document.getElementById('horario').removeAttribute('class');
-
-            document.getElementById('esfera').setAttribute('class','normal');
-            document.getElementById('milisegundero').setAttribute('class','normal');
-            document.getElementById('segundero').setAttribute('class','normal');
-            document.getElementById('minutero').setAttribute('class','normal');
-            document.getElementById('horario').setAttribute('class','normal');
-            invterval1 = setTimeout(transforma,4000);
+            document.getElementById('chico').setAttribute('id','reloj');
+            invterval1 = setTimeout(transforma,7000);
         }
 
         </script>
