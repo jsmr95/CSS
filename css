@@ -42,7 +42,7 @@ FORMAS:
     Podemos hacer seleccion de selectores a través de sus atributos:
     10.- p[name='texto']{...} -> aplica a los p, con el atributo name='texto', pero podemos usar
     ^=, *= ó $= que significa, empieza por, ...
-    
+
 
 ------- TEORIA ----------
 Componentes psicosomáticos ->
@@ -69,3 +69,10 @@ esos selectores.
 
 box-sizing -> establece las dimensiones de un elemento, aunque cambie, bordes, margenes,
 margenes internos,... esas van a ser sus dimensiones para siempre.
+
+------- 2º EVALUACIÓN  - JQUERY
+Para usar Jquery, debemos incluir en nuestro archivo js el cdn para poder usar todas sus clases.
+Con Jquery buscamos cualquier elemento DOM con $("selectorHTML")
+$('p') -> Obtenemos todos los elementos p del DOM
+$(".clase") -> Todos los selectores con esa clase.
+$(document).ready --> Equivale a un window.onload, para asegurarnos que todo el DOM está cargado.
