@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <!-- Actividad: Implementación de “Callback” en JQuery
+Crear cinco efectos visuales, dos de ellos inmediatos en el tiempo y los
+tres restantes con una demora no inferior a los 3 segundos sobre un
+elemento DOM.
+Posteriormente, mediante una función callback comprobar la diferencia
+resultante, distribuyendo los tiempos adecuadamente según el diseño
+propuesto.
+ El elemento pueden ser cualquier elemento DOM (visible).
+ Comentar brevemente el proceso así como la elección de los diferentes
+efectos y elemento DOM.-->
+    <script src="jquery.js" ></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+        $('h3').click(function(){
+            //en la funcion, se le puede pasar como segundo parametro el callback
+            $('h3').fadeOut(2000,function(){alert("hola")});
+        });
+        });
+    </script>
+    </head>
+    <body>
+        <h3>Prueba de CallBack</h3>
+    </body>
+</html>
