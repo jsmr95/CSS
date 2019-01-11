@@ -18,9 +18,12 @@ efectos y elemento DOM.-->
         $(document).ready(function(){
         $('h3').click(function(){
             //en la funcion, se le puede pasar como segundo parametro el callback
-            $('h3').fadeOut(2000,function(){alert("hola")});
+            $('h3').fadeOut(2000, hola);
         });
         });
+        function hola(){
+            alert('hola');
+        }
     </script>
     </head>
     <body>
