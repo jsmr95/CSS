@@ -79,3 +79,9 @@ $(document).ready --> Equivale a un window.onload, para asegurarnos que todo el 
 
 Toda funcion de Jquery, puede añadirse una segunda función (callback), la cual se ejecutará,
 despues de haberse ejecutado la primera.
+
+----------CONTEXTO ----------
+Como segundo parametro a un selector, se le puede indicar el contexto.
+$('p') ->Selecciona todos los p del document que es el contexto por defecto.
+$('p',document.forms[0]) -> Los p del primer formulario.
+$('p',div.miDiv) -> todos los p dentro de un div que tiene como clase miDiv
