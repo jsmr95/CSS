@@ -76,3 +76,6 @@ Con Jquery buscamos cualquier elemento DOM con $("selectorHTML")
 $('p') -> Obtenemos todos los elementos p del DOM
 $(".clase") -> Todos los selectores con esa clase.
 $(document).ready --> Equivale a un window.onload, para asegurarnos que todo el DOM está cargado.
+
+Toda funcion de Jquery, puede añadirse una segunda función (callback), la cual se ejecutará,
+despues de haberse ejecutado la primera.
