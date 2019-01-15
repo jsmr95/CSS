@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <!-- Crear tres capas DIV teniendo en cuenta:
+ Crear a nivel de documento dos botones centrados horizontalmente a pie de
+página.
+ Cada capa debe contener 3, 2 y 3 formularios respectivamente y 4 párrafos,
+distribuidos según tamaño de forma decreciente (H1...H4)
+ Cada formulario de contener 4 elementos de entrada de textos y dos botones.
+ La primera capa debe contener una tabla de 3x5
+ Todos los elementos anteriores deben establecerse a "oculto" hasta la carga
+efectiva del documento (excepto Botón #1).
+Los botones deben responder a:
+Botón #1 (evento "Click"):
++ Deben aparecer paulatinamente (FadeIn con retardo aleatorio entre 1 y 5
+segundos) aquellos elementos DOM que respondan a los párrafos del
+formulario #2.
++ Al término del evento, debe mostrarse el Botón #2 y ocultarse éste (this).
+ Botón #2 (evento "Click"):
++ Debe aparecer el resto de elementos (ocultos hasta ahora) y desaparecer
+(FadeOut) los que están visible por acción de Botón #1. Ambas acciones
+con idéntico retardo (aleatorio entre 3 y 10 segundos).
++ Al término del evento, debe mostrarse el Botón #1 y ocultarse éste (this).
+-->
+    <script src='jquery.js'> </script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('body *').hide();
+            $('footer,center,#boton1,div').show();
+            $('#boton1').on('click',function(){
+                var num = parseInt(Math.random()*5000);
+                $("form[id='2'],form[id='2'] *").fadeIn(num,function(){
+                    $('#boton1').hide();
+                    $('#boton2').show();
+                });
+            });
+            $('#boton2').on('click',function(){
+                var num1 = parseInt(Math.random()*7000+3000);
+                $('body *').fadeIn(num1,function(){
+                    $("form[id='2'],form[id='2'] *").fadeOut(num1);
+                });
+            });
+        });
+    </script>
+    </head>
+    <body>
+    <div>
+        <form id="1">
+            <input type="text" name="" value="">
+            <input type="text" name="" value="">
+            <input type="text" name="" value="">
+            <input type="text" name="" value="">
+            <input type="button" value="1">
+            <input type="button" value="2">
+        </form>
+        <form id="2">
+            <input type="text" name="" value="">
+            <input type="text" name="" value="">
+            <input type="text" name="" value="">
+            <input type="text" name="" value="">
+            <input type="button" value="1">
+            <input type="button" value="2">
+        </form>
+        <form id="3">
+            <input type="text" name="" value="">
+            <input type="text" name="" value="">
+            <input type="text" name="" value="">
+            <input type="text" name="" value="">
+            <input type="button" value="1">
+            <input type="button" value="2">
+        </form>
+        <table border='1'>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </table>
+        <h1>Hola 1</h1>
+        <h2>Hola 2</h2>
+        <h3>Hola 3</h3>
+        <h4>Hola 4</h4>
+    </div>
+    <div>
+        <form id="1">
+            <input type="text" name="" value="">
+            <input type="text" name="" value="">
+            <input type="text" name="" value="">
+            <input type="text" name="" value="">
+            <input type="button" value="1">
+            <input type="button" value="2">
+        </form>
+        <form id="2">
+            <input type="text" name="" value="">
+            <input type="text" name="" value="">
+            <input type="text" name="" value="">
+            <input type="text" name="" value="">
+            <input type="button" value="1">
+            <input type="button" value="2">
+        </form>
+        <h1>Hola 1</h1>
+        <h2>Hola 2</h2>
+        <h3>Hola 3</h3>
+        <h4>Hola 4</h4>
+    </div>
+    <div>
+        <form id="1">
+            <input type="text" name="" value="">
+            <input type="text" name="" value="">
+            <input type="text" name="" value="">
+            <input type="text" name="" value="">
+            <input type="button" value="1">
+            <input type="button" value="2">
+        </form>
+        <form id="2">
+            <input type="text" name="" value="">
+            <input type="text" name="" value="">
+            <input type="text" name="" value="">
+            <input type="text" name="" value="">
+            <input type="button" value="1">
+            <input type="button" value="2">
+        </form>
+        <form id="3">
+            <input type="text" name="" value="">
+            <input type="text" name="" value="">
+            <input type="text" name="" value="">
+            <input type="text" name="" value="">
+            <input type="button" value="1">
+            <input type="button" value="2">
+        </form>
+        <h1>Hola 1</h1>
+        <h2>Hola 2</h2>
+        <h3>Hola 3</h3>
+        <h4>Hola 4</h4>
+    </div>
+    <footer>
+        <center>
+            <input id='boton1' type="button" value="Boton 1">
+            <input id='boton2' type="button" value="Boton 2">
+        </center>
+    </footer>
+    </body>
+</html>
