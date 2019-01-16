@@ -24,142 +24,141 @@ formulario #2.
 con idéntico retardo (aleatorio entre 3 y 10 segundos).
 + Al término del evento, debe mostrarse el Botón #1 y ocultarse éste (this).
 -->
-    <script src='jquery.js'> </script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('body *').hide();
-            $('footer,center,#boton1,div').show();
-            $('#boton1').on('click',function(){
-                var num = parseInt(Math.random()*5000);
-                $("form[id='2'],form[id='2'] *").fadeIn(num,function(){
-                    $('#boton1').hide();
-                    $('#boton2').show();
-                });
-            });
-            $('#boton2').on('click',function(){
-                var num1 = parseInt(Math.random()*7000+3000);
-                $('body *').fadeIn(num1,function(){
-                    $("form[id='2'],form[id='2'] *").fadeOut(num1);
-                });
-            });
+  <script src='jquery.js'> </script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('body *').hide();
+      $('footer,center,#boton1,div').show();
+      $('#boton1').on('click',function(){
+        $('body *').hide();
+        $('footer,center,#boton1,div').show();
+        var num = parseInt(Math.random()*5000);
+        $("form[id='2'],form[id='2'] *",'div').fadeIn(num,function(){
+          $('#boton1').hide();
+          $('#boton2').show();
         });
-    </script>
-    </head>
-    <body>
-    <div>
-        <form id="1">
-            <input type="text" name="" value="">
-            <input type="text" name="" value="">
-            <input type="text" name="" value="">
-            <input type="text" name="" value="">
-            <input type="button" value="1">
-            <input type="button" value="2">
-        </form>
-        <form id="2">
-            <input type="text" name="" value="">
-            <input type="text" name="" value="">
-            <input type="text" name="" value="">
-            <input type="text" name="" value="">
-            <input type="button" value="1">
-            <input type="button" value="2">
-        </form>
-        <form id="3">
-            <input type="text" name="" value="">
-            <input type="text" name="" value="">
-            <input type="text" name="" value="">
-            <input type="text" name="" value="">
-            <input type="button" value="1">
-            <input type="button" value="2">
-        </form>
-        <table border='1'>
-            <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-            <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-            <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-            <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-            <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-        </table>
-        <h1>Hola 1</h1>
-        <h2>Hola 2</h2>
-        <h3>Hola 3</h3>
-        <h4>Hola 4</h4>
-    </div>
-    <div>
-        <form id="1">
-            <input type="text" name="" value="">
-            <input type="text" name="" value="">
-            <input type="text" name="" value="">
-            <input type="text" name="" value="">
-            <input type="button" value="1">
-            <input type="button" value="2">
-        </form>
-        <form id="2">
-            <input type="text" name="" value="">
-            <input type="text" name="" value="">
-            <input type="text" name="" value="">
-            <input type="text" name="" value="">
-            <input type="button" value="1">
-            <input type="button" value="2">
-        </form>
-        <h1>Hola 1</h1>
-        <h2>Hola 2</h2>
-        <h3>Hola 3</h3>
-        <h4>Hola 4</h4>
-    </div>
-    <div>
-        <form id="1">
-            <input type="text" name="" value="">
-            <input type="text" name="" value="">
-            <input type="text" name="" value="">
-            <input type="text" name="" value="">
-            <input type="button" value="1">
-            <input type="button" value="2">
-        </form>
-        <form id="2">
-            <input type="text" name="" value="">
-            <input type="text" name="" value="">
-            <input type="text" name="" value="">
-            <input type="text" name="" value="">
-            <input type="button" value="1">
-            <input type="button" value="2">
-        </form>
-        <form id="3">
-            <input type="text" name="" value="">
-            <input type="text" name="" value="">
-            <input type="text" name="" value="">
-            <input type="text" name="" value="">
-            <input type="button" value="1">
-            <input type="button" value="2">
-        </form>
-        <h1>Hola 1</h1>
-        <h2>Hola 2</h2>
-        <h3>Hola 3</h3>
-        <h4>Hola 4</h4>
-    </div>
-    <footer>
-        <center>
-            <input id='boton1' type="button" value="Boton 1">
-            <input id='boton2' type="button" value="Boton 2">
-        </center>
-    </footer>
-    </body>
+      });
+      $('#boton2').on('click',function(){
+        var num1 = parseInt(Math.random()*7000+3000);
+        $('body *').fadeIn(num1)
+        $("form[id='2'],form[id='2'] *").fadeOut(num1,function(){
+          $('#boton2').hide();
+        });
+      });
+    });
+  </script>
+  </head>
+  <body>
+  <div>
+    <form id="1">
+      <input type="text" name="" value="">
+      <input type="text" name="" value="">
+      <input type="text" name="" value="">
+      <input type="text" name="" value="">
+      <input type="button" value="1">
+      <input type="button" value="2">
+    </form>
+    <form id="2">
+      <input type="text" name="" value="">
+      <input type="text" name="" value="">
+      <input type="text" name="" value="">
+      <input type="text" name="" value="">
+      <input type="button" value="1">
+      <input type="button" value="2">
+    </form>
+    <form id="3">
+      <input type="text" name="" value="">
+      <input type="text" name="" value="">
+      <input type="text" name="" value="">
+      <input type="text" name="" value="">
+      <input type="button" value="1">
+      <input type="button" value="2">
+    </form>
+    <table border='1'>
+      <tr>
+        <th>Hola</th>
+        <th>hola1</th>
+        <th>hola2</th>
+        <th>hola3</th>
+        <th>hola4</th>
+      </tr>
+      <tr>
+        <th>hola5</th>
+        <th>hola6</th>
+        <th>hola7</th>
+        <th>hola8</th>
+        <th>hola9</th>
+      </tr>
+      <tr>
+        <th>hola10</th>
+        <th>hola11</th>
+        <th>hola12</th>
+        <th>hola13</th>
+        <th>hola14</th>
+      </tr>
+    </table>
+    <h1>Hola 1</h1>
+    <h2>Hola 2</h2>
+    <h3>Hola 3</h3>
+    <h4>Hola 4</h4>
+  </div>
+  <div>
+    <form id="1">
+      <input type="text" name="" value="">
+      <input type="text" name="" value="">
+      <input type="text" name="" value="">
+      <input type="text" name="" value="">
+      <input type="button" value="1">
+      <input type="button" value="2">
+    </form>
+    <form id="2">
+      <input type="text" name="" value="">
+      <input type="text" name="" value="">
+      <input type="text" name="" value="">
+      <input type="text" name="" value="">
+      <input type="button" value="1">
+      <input type="button" value="2">
+    </form>
+    <h1>Hola 1</h1>
+    <h2>Hola 2</h2>
+    <h3>Hola 3</h3>
+    <h4>Hola 4</h4>
+  </div>
+  <div>
+    <form id="1">
+      <input type="text" name="" value="">
+      <input type="text" name="" value="">
+      <input type="text" name="" value="">
+      <input type="text" name="" value="">
+      <input type="button" value="1">
+      <input type="button" value="2">
+    </form>
+    <form id="2">
+      <input type="text" name="" value="">
+      <input type="text" name="" value="">
+      <input type="text" name="" value="">
+      <input type="text" name="" value="">
+      <input type="button" value="1">
+      <input type="button" value="2">
+    </form>
+    <form id="3">
+      <input type="text" name="" value="">
+      <input type="text" name="" value="">
+      <input type="text" name="" value="">
+      <input type="text" name="" value="">
+      <input type="button" value="1">
+      <input type="button" value="2">
+    </form>
+    <h1>Hola 1</h1>
+    <h2>Hola 2</h2>
+    <h3>Hola 3</h3>
+    <h4>Hola 4</h4>
+  </div>
+  <footer>
+    <center>
+      <input id='boton1' type="button" value="Boton 1">
+      <input id='boton2' type="button" value="Boton 2">
+    </center>
+  </footer>
+  </body>
 </html>
