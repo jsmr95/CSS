@@ -56,22 +56,25 @@ seleccionados aleatoriamente entre todas las capas, excepto sus títulos.
         $("div").each(function(){
           for (var i = 0; i < num; i++) {
             if (i==0) {
-              var p = $(`<p id='${i}'><h1>Esto es un parrafo.</h1></p>`);
+              var p = $(`<h1><p id='${i}'>Esto es un parrafo.</p></h1>`);
               $(this).append(p);
             }else {
               var p = $(`<p id='${i}'>Esto es un parrafo.</p>`);
               $(this).append(p);
             }
           }
-          $(this).on('mouseover',function(){
-            $("p").each(function(i){
-
-            });
-          });
-          $(this).on("mouseout",function(){
-
-          });
         });
+        $("p").on('mouseover',function(){
+            if ($(this).attr("id") != 0) {
+              var x = setInterval(function(){ //VOY POR AQUI
+                $(this).fadeOut(1500);
+              },1500);
+            }
+        });
+        $(this).on("mouseout",function(){
+
+        });
+
         var div = $("<div class='claseDiv'><p>Div oculto</p></div>");
         $(document.body).append(div);
         $(".claseDiv").hide();
