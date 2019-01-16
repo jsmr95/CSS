@@ -23,7 +23,14 @@ seleccionados aleatoriamente entre todas las capas, excepto sus títulos.
 + Los párrafos de título deben pasar a tener el 100% de tamaño y cambo a rojo.
 + Los eventos anteriores deben perder efecto al cabo de los 5 segundos.
 -->
-
+  <style media="screen">
+    .claseDiv{
+      height: 10%;
+      width: auto;
+      border: 1px solid;
+      display: block;
+    }
+  </style>
   <script src="jquery.js"> </script>
   <script type="text/javascript">
     $(document).ready(function(){
@@ -41,7 +48,34 @@ seleccionados aleatoriamente entre todas las capas, excepto sus títulos.
       var boton1 = $("<input id='boton1' type='button' value='Boton 1' />");
       $(document.body).append(boton1);
       $("#boton1").on("click",function(){
-        console.log(t);
+        for (var i = 0; i < t; i++) {
+          var div = $(`<div id='${i}'></div>`);
+          $(document.body).append(div);
+        }
+        var num = parseInt(Math.random()*10+10) * t;
+        $("div").each(function(){
+          for (var i = 0; i < num; i++) {
+            if (i==0) {
+              var p = $(`<p id='${i}'><h1>Esto es un parrafo.</h1></p>`);
+              $(this).append(p);
+            }else {
+              var p = $(`<p id='${i}'>Esto es un parrafo.</p>`);
+              $(this).append(p);
+            }
+          }
+          $(this).on('mouseover',function(){
+            $("p").each(function(i){
+
+            });
+          });
+          $(this).on("mouseout",function(){
+
+          });
+        });
+        var div = $("<div class='claseDiv'><p>Div oculto</p></div>");
+        $(document.body).append(div);
+        $(".claseDiv").hide();
+        $("#boton1").hide();
       });
     });
   </script>
