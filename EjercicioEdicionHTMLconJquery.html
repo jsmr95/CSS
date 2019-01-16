@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- Mediante una entrada de texto (único elemento existente después de la carga), asignar a
+una variable su valor numérico, siendo éste superior a 2 e inferior a 7 (no aceptar
+entradas fuera de intervalo).
+Crear un Botón#1 que dispare (evento "click") una función tal que:
+• Añada a “Body” el número de capas indicado en la entrada anterior (evitar Scroll).
+• Añada, respectivamente a las capas, un número de párrafos resultante del producto del número
+de capas por el número aleatorio en el intervalo [10, 20] teniendo el primero de ellos formato de
+título (H1).
+• Añadir DIV (oculto) que ocupe el equivalente a la décima parte inferior de la ventana.
+• Ocultar Botón#1.
+
+ Acciones sobre capas (evento "mouseover"):
++ Deben aparecer y desaparecer (latencias entre 1 y 3 segundos) aquellos párrafos
+seleccionados aleatoriamente entre todas las capas, excepto sus títulos.
++ Los eventos anteriores no deben tener efecto al cabo de los 20 segundos.
+
+ Acciones sobre capas (evento " mouseout"):
++ Los párrafos de título deben pasar a tener el 100% de tamaño y cambo a rojo.
++ Los eventos anteriores deben perder efecto al cabo de los 5 segundos.
+-->
+
+  <script src="jquery.js"> </script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      var t;
+      $("#texto").on("change",function(){
+        var x = $("#texto")[0].value;
+        if (x<2 || x>7) {
+          $("#texto")[0].value = "";
+          x = "";
+        }else {
+          t = x;
+        }
+      });
+      //Creamos el boton
+      var boton1 = $("<input id='boton1' type='button' value='Boton 1' />");
+      $(document.body).append(boton1);
+      $("#boton1").on("click",function(){
+        console.log(t);
+      });
+    });
+  </script>
+  </head>
+  <body>
+    <input id='texto' type="text">
+  </body>
+</html>
