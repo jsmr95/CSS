@@ -52,9 +52,13 @@ seleccionados aleatoriamente entre todas las capas, excepto sus títulos.
           var div = $(`<div id='${i}'></div>`);
           $(document.body).append(div);
         }
+        $("div").css("height",`${100/t}%`);//$
+        $("div").css("display","block");
+        $("div").css("width","70%");
+        $("div").css("border","1px solid");
         var num = parseInt(Math.random()*10+10) * t;
         $("div").each(function(){
-          for (var i = 0; i < num; i++) {
+          for (var i = 0; i < 2; i++) {
             if (i==0) {
               var p = $(`<h1><p id='${i}'>Esto es un parrafo.</p></h1>`);
               $(this).append(p);
@@ -66,11 +70,13 @@ seleccionados aleatoriamente entre todas las capas, excepto sus títulos.
         });
         $("p").on('mouseover',function(){
             if ($(this).attr("id") != 0) {
-              var x = setInterval(function(){ //VOY POR AQUI
-                $(this).fadeOut(1500);
-              },1500);
+              $(this).fadeOut(100);
+              $(this).fadeIn(100);
             }
         });
+        setTimeout(function(){
+          $("p").off();
+        },20000);
         $(this).on("mouseout",function(){
 
         });
@@ -83,7 +89,7 @@ seleccionados aleatoriamente entre todas las capas, excepto sus títulos.
     });
   </script>
   </head>
-  <body>
+  <body style="overflow-y:hidden;">
     <input id='texto' type="text">
   </body>
 </html>
