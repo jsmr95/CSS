@@ -52,13 +52,11 @@ seleccionados aleatoriamente entre todas las capas, excepto sus títulos.
           var div = $(`<div id='${i}'></div>`);
           $(document.body).append(div);
         }
-        $("div").css("height",`${100/t}%`);//$
-        $("div").css("display","block");
+        $("div").css("height",`${100/t}%`);
         $("div").css("width","70%");
-        $("div").css("border","1px solid");
         var num = parseInt(Math.random()*10+10) * t;
         $("div").each(function(){
-          for (var i = 0; i < 2; i++) {
+          for (var i = 0; i < num; i++) {
             if (i==0) {
               var p = $(`<h1><p id='${i}'>Esto es un parrafo.</p></h1>`);
               $(this).append(p);
@@ -70,16 +68,24 @@ seleccionados aleatoriamente entre todas las capas, excepto sus títulos.
         });
         $("p").on('mouseover',function(){
             if ($(this).attr("id") != 0) {
-              $(this).fadeOut(100);
-              $(this).fadeIn(100);
+              $(this).fadeOut(1000);
+              $(this).fadeIn(1000);
             }
         });
         setTimeout(function(){
-          $("p").off();
+          $("p").off('mouseover');
         },20000);
-        $(this).on("mouseout",function(){
-
+        $("p").on("mouseout",function(e){
+          if (e.target.id==0) {
+            $(this).css("font-size","100%");
+            $(this).css("color","#FF0000");
+          }
         });
+
+        setTimeout(function(){
+          $("p").off('mouseout');
+          $("p").removeAttr("style");
+        },5000);
 
         var div = $("<div class='claseDiv'><p>Div oculto</p></div>");
         $(document.body).append(div);
