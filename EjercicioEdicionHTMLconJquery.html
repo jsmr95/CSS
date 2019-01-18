@@ -26,9 +26,11 @@ seleccionados aleatoriamente entre todas las capas, excepto sus títulos.
   <style media="screen">
     .claseDiv{
       height: 10%;
-      width: auto;
+      width: 100%;
+      bottom: 0;
       border: 1px solid;
       display: block;
+      z-index: 1;
     }
   </style>
   <script src="jquery.js"> </script>
@@ -44,18 +46,26 @@ seleccionados aleatoriamente entre todas las capas, excepto sus títulos.
           t = x;
         }
       });
+
       //Creamos el boton
       var boton1 = $("<input id='boton1' type='button' value='Boton 1' />");
       $(document.body).append(boton1);
+      //Creamos el div Principal
+      var div = $("<div id='divPrincipal'></div>");
+      $(document.body).append(div);
+      //Creamos el div oculto
+      var div = $("<div class='claseDiv'><p>Div oculto</p></div>");
+      $(document.body).append(div);
+      //Añado evento a boton
       $("#boton1").on("click",function(){
         for (var i = 0; i < t; i++) {
-          var div = $(`<div id='${i}'></div>`);
-          $(document.body).append(div);
+          var div = $(`<div id='divSecundario'></div>`);
+          $("#divPrincipal").append(div);
         }
-        $("div").css("height",`${100/t}%`);
-        $("div").css("width","70%");
+        $("#divSecundario").css("height",`${100/t}%`);
+        $("divSecundario").css("width","70%");
         var num = parseInt(Math.random()*10+10) * t;
-        $("div").each(function(){
+        $("#divSecundario").each(function(){
           for (var i = 0; i < num; i++) {
             if (i==0) {
               var p = $(`<h1><p id='${i}'>Esto es un parrafo.</p></h1>`);
@@ -87,15 +97,19 @@ seleccionados aleatoriamente entre todas las capas, excepto sus títulos.
           $("p").removeAttr("style");
         },5000);
 
-        var div = $("<div class='claseDiv'><p>Div oculto</p></div>");
-        $(document.body).append(div);
-        $(".claseDiv").hide();
+
+        // $(".claseDiv").hide();
         $("#boton1").hide();
       });
+
+
     });
+    function generaNumero(){
+        parseInt(Math.random()*2+1);
+    }
   </script>
   </head>
-  <body style="overflow-y:hidden;">
+  <body>
     <input id='texto' type="text">
   </body>
 </html>
