@@ -39,7 +39,7 @@ seleccionados aleatoriamente entre todas las capas, excepto sus títulos.
       var t;
       $("#texto").on("change",function(){
         var x = $("#texto")[0].value;
-        if (x<2 || x>7) {
+        if (x<3 || x>7) {
           $("#texto")[0].value = "";
           x = "";
         }else {
@@ -76,8 +76,8 @@ seleccionados aleatoriamente entre todas las capas, excepto sus títulos.
             }
             num = parseInt(Math.random()*10+10) * t;
           }
-        });
-        $("p").on('mouseover',function(){
+      });
+        $(".claseDiv").on('mouseover',function(){
             if ($(this).attr("id") != 0) {
               $(this).fadeOut(1000);
               $(this).fadeIn(1000);
@@ -107,6 +107,12 @@ seleccionados aleatoriamente entre todas las capas, excepto sus títulos.
     });
     function generaNumero(){
         parseInt(Math.random()*2+1);
+    }
+
+    function cambiaLetras(){
+        console.log($("p").size());
+        // var x = screen.width/
+        // $("p").css('font-size',)
     }
   </script>
   </head>
