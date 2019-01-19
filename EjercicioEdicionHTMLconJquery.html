@@ -84,11 +84,12 @@ seleccionados aleatoriamente entre todas las capas, excepto sus títulos.
               if (x != 0) {
                 $(`p[id=${x}]`).fadeOut(1000);
                 $(`p[id=${x}]`).fadeIn(1000);
+                setTimeout(function(){
+                  $(".claseDiv").off('mouseover');
+                },20000);
               }
         });
-        setTimeout(function(){
-          $("p").off('mouseover');
-        },20000);
+
         $("p").on("mouseout",function(e){
           if (e.target.id==0) {
             $(this).css("font-size","100%");
