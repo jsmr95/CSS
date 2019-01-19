@@ -90,17 +90,14 @@ seleccionados aleatoriamente entre todas las capas, excepto sus títulos.
               }
         });
 
-        $("p").on("mouseout",function(e){
-          if (e.target.id==0) {
-            $(this).css("font-size","100%");
-            $(this).css("color","#FF0000");
-          }
+        $(".claseDiv").on("mouseout",function(e){
+            $("p[id=0]").css("font-size","100%");
+            $("p[id=0]").css("color","#FF0000");
+            setTimeout(function(){
+              $("p[id=0]").off('mouseout');
+              $("p[id=0]").removeAttr("style");
+            },5000);
         });
-
-        setTimeout(function(){
-          $("p").off('mouseout');
-          $("p").removeAttr("style");
-        },5000);
 
         // $(".claseDiv").hide();
         $("#boton1").hide();
