@@ -79,10 +79,12 @@ seleccionados aleatoriamente entre todas las capas, excepto sus títulos.
           }
       });
         $(".claseDiv").on('mouseover',function(){
-            if ($(this).attr("id") != 0) {
-              $(this).fadeOut(1000);
-              $(this).fadeIn(1000);
-            }
+              var y = $("p").length;
+              var x = Math.floor(Math.random()*y);
+              if (x != 0) {
+                $(`p[id=${x}]`).fadeOut(1000);
+                $(`p[id=${x}]`).fadeIn(1000);
+              }
         });
         setTimeout(function(){
           $("p").off('mouseover');
