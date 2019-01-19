@@ -32,6 +32,9 @@ seleccionados aleatoriamente entre todas las capas, excepto sus títulos.
       display: block;
       z-index: 1;
     }
+    p{
+      display: block;
+    }
   </style>
   <script src="jquery.js"> </script>
   <script type="text/javascript">
@@ -68,7 +71,7 @@ seleccionados aleatoriamente entre todas las capas, excepto sus títulos.
         $("div[name='divSecundario']").each(function(){
           for (var i = 0; i < num; i++) {
             if (i==0) {
-              var p = $(`<h1><p id='${i}'>Esto es un parrafo.</p></h1>`);
+              var p = $(`<p id='${i}'>Esto es un parrafo.</p>`);
               $(this).append(p);
             }else {
               var p = $(`<p id='${i}'>Esto es un parrafo.</p>`);
@@ -76,6 +79,7 @@ seleccionados aleatoriamente entre todas las capas, excepto sus títulos.
             }
             num = parseInt(Math.random()*10+10) * t;
           }
+          cambiaLetras();
       });
         $(".claseDiv").on('mouseover',function(){
             if ($(this).attr("id") != 0) {
@@ -98,11 +102,9 @@ seleccionados aleatoriamente entre todas las capas, excepto sus títulos.
           $("p").removeAttr("style");
         },5000);
 
-
         // $(".claseDiv").hide();
         $("#boton1").hide();
       });
-
 
     });
     function generaNumero(){
@@ -110,13 +112,15 @@ seleccionados aleatoriamente entre todas las capas, excepto sus títulos.
     }
 
     function cambiaLetras(){
-        console.log($("p").size());
-        // var x = screen.width/
-        // $("p").css('font-size',)
+      var p = $("p");
+      var x = screen.width/p.length;
+      $("p").each(function(){
+        $(this).css('font-size',`${x}px`);
+      });
     }
   </script>
   </head>
-  <body>
+  <body> <!-- style="overflow-y:hidden" -->
     <input id='texto' type="text">
   </body>
 </html>
