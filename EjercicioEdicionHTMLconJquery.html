@@ -28,12 +28,16 @@ seleccionados aleatoriamente entre todas las capas, excepto sus títulos.
       height: 10%;
       width: 100%;
       bottom: 0;
-      border: 1px solid;
+      padding: 50px;
       display: block;
       z-index: 1;
     }
+    div {
+        display: inline-block;
+        vertical-align: top;
+    }
     p{
-      display: list-item;
+      display: block;
     }
   </style>
   <script src="jquery.js"> </script>
@@ -57,7 +61,7 @@ seleccionados aleatoriamente entre todas las capas, excepto sus títulos.
       var div = $("<div id='divPrincipal'></div>");
       $(document.body).append(div);
       //Creamos el div oculto
-      var div = $("<div class='claseDiv'><p>Div oculto</p></div>");
+      var div = $("<div class='claseDiv'></div>");
       $(document.body).append(div);
       //Añado evento a boton
       $("#boton1").on("click",function(){
@@ -111,8 +115,8 @@ seleccionados aleatoriamente entre todas las capas, excepto sus títulos.
     }
 
     function cambiaLetras(){
-      var p = $("p");
-      var x = $(window).height/p.length;
+      var p = $("p , div");
+      var x =  window.innerHeight/p.length;
       $("p").each(function(){
         $(this).css('font-size',`${x}px`);
       });
