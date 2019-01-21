@@ -90,14 +90,13 @@ seleccionados aleatoriamente entre todas las capas, excepto sus títulos.
               if (x != 0) {
                   if ($(`p[id=${x}]`).data('tiempo') > 0) {
                       var nuevoTiempo = generaNumero();
-                      $(`p[id=${x}]`).data('tiempo',nuevoTiempo);
-                      $(`p[id=${x}]`).fadeOut(nuevoTiempo);
-                      $(`p[id=${x}]`).fadeIn(nuevoTiempo);
+                      // $(`p[id=${x}]`).data('tiempo',nuevoTiempo);
+                      // $(`p[id=${x}]`).fadeOut(nuevoTiempo);
+                      // $(`p[id=${x}]`).fadeIn(nuevoTiempo);
+                      console.log("hola");
                   }else {
-                        do
-                        {
                           var nuevoTiempo = generaNumero();
-                      }while ($(`p[id=${x}]`).data('tiempo') != nuevoTiempo);
+                          console.log(nuevoTiempo);
                           $(`p[id=${x}]`).data('tiempo',nuevoTiempo);
                           $(`p[id=${x}]`).fadeOut(nuevoTiempo);
                           $(`p[id=${x}]`).fadeIn(nuevoTiempo);
@@ -133,7 +132,7 @@ seleccionados aleatoriamente entre todas las capas, excepto sus títulos.
       var p = $("p , div");
       var x =  window.innerHeight/p.length;
       $("p").each(function(){
-        $(this).css('font-size',`${x+1}px`);
+        $(this).css('font-size',`${x+0.3}px`);
       });
     }
   </script>
