@@ -28,6 +28,7 @@ seleccionados aleatoriamente entre todas las capas, excepto sus títulos.
       height: 10%;
       width: 100%;
       bottom: 0;
+      border: 1px solid;
       padding: 50px;
       display: block;
       z-index: 1;
@@ -38,6 +39,7 @@ seleccionados aleatoriamente entre todas las capas, excepto sus títulos.
     }
     p{
       display: block;
+      margin-right: 20px;
     }
   </style>
   <script src="jquery.js"> </script>
@@ -86,8 +88,20 @@ seleccionados aleatoriamente entre todas las capas, excepto sus títulos.
               var y = $("p").length;
               var x = Math.floor(Math.random()*y);
               if (x != 0) {
-                $(`p[id=${x}]`).fadeOut(1000);
-                $(`p[id=${x}]`).fadeIn(1000);
+                  if ($(`p[id=${x}]`).data('tiempo') > 0) {
+                      var nuevoTiempo = generaNumero();
+                      $(`p[id=${x}]`).data('tiempo',nuevoTiempo);
+                      $(`p[id=${x}]`).fadeOut(nuevoTiempo);
+                      $(`p[id=${x}]`).fadeIn(nuevoTiempo);
+                  }else {
+                        do
+                        {
+                          var nuevoTiempo = generaNumero();
+                      }while ($(`p[id=${x}]`).data('tiempo') != nuevoTiempo);
+                          $(`p[id=${x}]`).data('tiempo',nuevoTiempo);
+                          $(`p[id=${x}]`).fadeOut(nuevoTiempo);
+                          $(`p[id=${x}]`).fadeIn(nuevoTiempo);
+                  }
                 setTimeout(function(){
                   $(".claseDiv").off('mouseover');
                 },20000);
@@ -112,14 +126,14 @@ seleccionados aleatoriamente entre todas las capas, excepto sus títulos.
 
     });
     function generaNumero(){
-        parseInt(Math.random()*2+1);
+        return parseInt(Math.random()*2000+1000);
     }
 
     function cambiaLetras(){
       var p = $("p , div");
       var x =  window.innerHeight/p.length;
       $("p").each(function(){
-        $(this).css('font-size',`${x}px`);
+        $(this).css('font-size',`${x+1}px`);
       });
     }
   </script>
