@@ -3,12 +3,17 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <style media="screen">
+      img{
+        position:absolute;
+      }
+    </style>
     <script src='jquery.js'> </script>
-    <script type="text/javascript">
+    <script>
       $(document).ready(function(){
         var imagenes = $('img');
         var left = 0;
-        for (var i = 1; i < imagenes.length; i++) {
+        for (var i = 1; i <= imagenes.length; i++) {
           $(`#${i}`).css('top','200px');
           $(`#${i}`).css('left',`${left++*100}px`);
         }
@@ -23,6 +28,6 @@
     <img id="5" src="imagenes/Cruz-Vidal,-Alejandro.jpg">
     <img id="6" src="imagenes/Gallego-Martel,-Jose-Maria.jpg">
     <img id="7" src="imagenes/Garci-Peña,-José-Joaquín.jpg">
-    <img id="8" 1src="imagenes/Vazquez-Rodriguez,-Maria-del-Mar.jpg">
+    <img id="8" src="imagenes/Vazquez-Rodriguez,-Maria-del-Mar.jpg">
   </body>
 </html>
