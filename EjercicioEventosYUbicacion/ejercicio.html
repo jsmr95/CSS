@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title></title>
-        <script src='jquery.js'> </script>
-        <script type="text/javascript">
-            $(document).ready(function(){
-                
-            });
-        </script>
-    </head>
-    <body>
-        <img src="imagenes/Barba Garcia, Francisco.jpg">
-        <img src="imagenes/Barba-Rodriguez,-Arturo.jpg">
-        <img src="imagenes/Caro-Bernal,-Miguel-Angel.jpg">
-        <img src="imagenes/Castillo-Pena,-José-Luis.jpg">
-        <img src="imagenes/Cruz-Vidal,-Alejandro.jpg">
-        <img src="imagenes/Gallego-Martel,-Jose-Maria.jpg">
-        <img src="imagenes/Garci-Peña,-José-Joaquín.jpg">
-        <img src="imagenes/Vazquez-Rodriguez,-Maria-del-Mar.jpg">
-    </body>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src='jquery.js'> </script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        var imagenes = $('img');
+        var left = 0;
+        for (var i = 1; i < imagenes.length; i++) {
+          $(`#${i}`).css('top','200px');
+          $(`#${i}`).css('left',`${left++*100}px`);
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <img id="1" src="imagenes/Barba Garcia, Francisco.jpg">
+    <img id="2" src="imagenes/Barba-Rodriguez,-Arturo.jpg">
+    <img id="3" src="imagenes/Caro-Bernal,-Miguel-Angel.jpg">
+    <img id="4" src="imagenes/Castillo-Pena,-José-Luis.jpg">
+    <img id="5" src="imagenes/Cruz-Vidal,-Alejandro.jpg">
+    <img id="6" src="imagenes/Gallego-Martel,-Jose-Maria.jpg">
+    <img id="7" src="imagenes/Garci-Peña,-José-Joaquín.jpg">
+    <img id="8" 1src="imagenes/Vazquez-Rodriguez,-Maria-del-Mar.jpg">
+  </body>
 </html>
