@@ -17,6 +17,13 @@
           $(`#${i}`).css('top','200px');
           $(`#${i}`).css('left',`${left++*100}px`);
         }
+
+        imagenes.on('mousedown',function(e){
+          console.log(this);
+          console.log(e);
+          console.log('hola');
+        });
+
       });
     </script>
   </head>
