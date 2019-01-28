@@ -22,17 +22,22 @@
 
         imagenes.draggable();
         imagenes.on('drag', function(){
+            $(this).css('opacity','0.5');
             if (!$(document.body).data('valor')) {
                 $(document.body).data('valor',`${this.id}`);
             }else {
                 var id = this.id;
                 if ($(document.body).data('valor') > id) {
+                    $(this).css('opacity','1');
                     $(this).draggable({revert: true});
                 }else {
                     $(this).draggable({revert: false});
                     $(document.body).data('valor',`${this.id}`);
                 }
             }
+        });
+        imagenes.on('mouseup',function(){
+            $(this).css('opacity','1');
         });
 
       });
