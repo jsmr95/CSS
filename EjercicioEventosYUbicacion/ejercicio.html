@@ -30,6 +30,7 @@
                     $(this).draggable({revert: true});
                 }else {
                     $(this).draggable({revert: false});
+                    $(document.body).data('valor',`${this.id}`);
                 }
             }
         });
