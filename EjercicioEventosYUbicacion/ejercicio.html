@@ -20,7 +20,19 @@
           $(`#${i}`).css('left',`${left++*100}px`);
         }
 
-        $('img').draggable({revert:true});
+        imagenes.draggable();
+        imagenes.on('drag', function(){
+            if (!$(document.body).data('valor')) {
+                $(document.body).data('valor',`${this.id}`);
+            }else {
+                var id = this.id;
+                if ($(document.body).data('valor') > id) {
+                    $(this).draggable({revert: true});
+                }else {
+                    $(this).draggable({revert: false});
+                }
+            }
+        });
 
       });
     </script>
