@@ -31,17 +31,21 @@
                     $(this).draggable({revert: true});
                 }else {
                     $(this).draggable({revert: false});
+                    $(document.body).data('anterior',`${$(document.body).data('valor')}`)
                     $(document.body).data('valor',`${id}`);
+                    // console.log($(document.body).data('valor'));
+                    // console.log($(document.body).data('anterior'));
+                    //el drag se ejecuta continuamente, por lo que anterior pasa a valer lo mismo que valor
                 }
             }
         });
         imagenes.on('mouseup',function(){ //se ejecuta si no esta drageando antes
             $(this).css('opacity','1');
-            var cartaAbajo = $(`#${$(document.body).data('valor')}`);
+            var cartaAbajo = $(`#${$(document.body).data('anterior')}`);
             var posicion = {top:$(cartaAbajo).position().top+10,left:$(cartaAbajo).position().left+10};
-            $(this).position(`top:${posicion.top}, left:${posicion.left}`);
-            console.log($(this).position());
-            console.log(posicion);
+            $(this).css('position',`top:${posicion.top}, left:${posicion.left}`);
+            // console.log($(this).position());
+            // console.log(posicion);
         });
 
       });
