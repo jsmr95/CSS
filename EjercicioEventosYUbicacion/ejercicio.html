@@ -28,15 +28,14 @@
             }else {
                 var id = this.id;
                 if ($(document.body).data('valor') > id) {
-                    $(this).css('opacity','1');
                     $(this).draggable({revert: true});
                 }else {
                     $(this).draggable({revert: false});
-                    $(document.body).data('valor',`${this.id}`);
+                    $(document.body).data('valor',`${id}`);
                 }
             }
         });
-        imagenes.on('mouseup',function(){
+        imagenes.on('mouseup',function(){ //se ejecuta si no esta drageando antes
             $(this).css('opacity','1');
             var cartaAbajo = $(`#${$(document.body).data('valor')}`);
             var posicion = {top:$(cartaAbajo).position().top+10,left:$(cartaAbajo).position().left+10};
