@@ -14,6 +14,7 @@
     <script>
       $(document).ready(function(){
         var imagenes = $('img');
+        var count = 0;
         var left = 0;
         for (var i = 1; i <= imagenes.length; i++) {
           $(`#${i}`).css('top','200px');
@@ -23,31 +24,31 @@
         imagenes.draggable();
         imagenes.on('drag', function(){
             $(this).css('opacity','0.5');
-            if (!$(document.body).data('valor')) {
-                $(document.body).data('valor',`${this.id}`);
-            }else {
+            if (count === 0) {
+                count++;
                 var id = this.id;
-                if ($(document.body).data('valor') > id) {
-                    $(this).draggable({revert: true});
-                }else {
-                    $(this).draggable({revert: false});
-                    $(document.body).data('anterior',`${$(document.body).data('valor')}`)
+                if (!$(document.body).data('valor')) {
                     $(document.body).data('valor',`${id}`);
-                    // console.log($(document.body).data('valor'));
-                    // console.log($(document.body).data('anterior'));
-                    //el drag se ejecuta continuamente, por lo que anterior pasa a valer lo mismo que valor
+                    $(document.body).data('anterior',`${id}`)
+                }else {
+                    if ($(document.body).data('valor') > id) {
+                        $(this).draggable({revert: true});
+                    }else {
+                        $(document.body).data('anterior',`${$(document.body).data('valor')}`)
+                        $(document.body).data('valor',`${id}`);
+                        $(this).draggable({revert: false});
+                    }
                 }
             }
         });
         imagenes.on('mouseup',function(){ //se ejecuta si no esta drageando antes
+            count=0;
             $(this).css('opacity','1');
             var cartaAbajo = $(`#${$(document.body).data('anterior')}`);
-            var posicion = {top:$(cartaAbajo).position().top+10,left:$(cartaAbajo).position().left+10};
-            $(this).css('position',`top:${posicion.top}, left:${posicion.left}`);
-            // console.log($(this).position());
-            // console.log(posicion);
+            var posicion = {top:$(cartaAbajo).position().top+50,left:$(cartaAbajo).position().left+50};
+            $(this).css('top',`${posicion.top}px`);
+            $(this).css('left',`${posicion.left}px`);
         });
-
       });
     </script>
   </head>
